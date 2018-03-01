@@ -10,4 +10,18 @@ router.get('/', function(req,res){
     })
 });
 
+router.put('/burgers/update', function(req,res){
+    burger.update(req.body.burger_id, function(result){
+        console.log(result);
+        res.redirect('/');
+    });
+});
+
+router.post('/burgers/create',function(req,res){
+    burger.create(req.body.burger_name, function(result){
+       if(err)throw err;
+       cb(result); 
+    })
+})
+
 module.exports = router;
